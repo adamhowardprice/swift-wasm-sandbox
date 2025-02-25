@@ -1,0 +1,23 @@
+[application]
+name = "swift-wasm-playground"
+version = "0.1.0"
+description = "Swift WebAssembly Playground powered by Fermyon Spin"
+authors = ["Adam Price <adamhowardprice@gmail.com>"]
+trigger = { type = "http", base = "/" }
+
+[[component]]
+id = "swift-executor"
+description = "Component that compiles and executes Swift code"
+source = "target/swift-executor.wasm"
+[component.trigger]
+route = "/execute"
+[component.build]
+command = "cargo build --target wasm32-wasi --release"
+watch = ["src/**/*.rs"]
+
+[[component]]
+id = "static-fileserver"
+source = { url = "https://github.com/fermyon/spin-fileserver/releases/download/v0.2.1/spin_static_fs.wasm", digest = "sha256:650376c33a0756b1a52cad7ca670f1126391b79050df0b1b091d5a65aa00b62c" }
+files = [{ source = "web", destination = "/" }]
+[component.trigger]
+route = "/..."
