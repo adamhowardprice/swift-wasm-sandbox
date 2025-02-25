@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swift WebAssembly Playground</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Monaco Editor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Swift WebAssembly Playground</h1>
+        <div class="controls">
+            <button id="run-button">Run Code (⌘+Enter)</button>
+            <select id="example-selector">
+                <option value="">Select an example...</option>
+                <option value="hello">Hello World</option>
+                <option value="fibonacci">Fibonacci Sequence</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="editor-container">
+                <div id="editor"></div>
+            </div>
+            <div class="output-container">
+                <h3>Output</h3>
+                <pre id="output"></pre>
+                <div id="loading" class="hidden">Compiling and Running...</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Swift WebAssembly Playground - Powered by <a href="https://swiftwasm.org/" target="_blank">SwiftWasm</a></p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/swift-wasm-loader.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
